@@ -3,11 +3,11 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
-  "sort"
-  "math"
 )
 
 func main() {
@@ -60,19 +60,18 @@ func main() {
 		fmt.Println("Error reading file:", err)
 		return
 	}
-  
-  // Sort the slices
-  sort.Ints(column1)
-  sort.Ints(column2)
 
-  var sum_of_difference int = 0;
- for i := 0 ; i < len(column1) ; i++ {
-  sum_of_difference += int(math.Abs(float64(column1[i] - column2[i])))
- }
- 
- fmt.Println(sum_of_difference)
+	// Sort the slices
+	sort.Ints(column1)
+	sort.Ints(column2)
+
+	var sum_of_difference int = 0
+	for i := 0; i < len(column1); i++ {
+		sum_of_difference += int(math.Abs(float64(column1[i] - column2[i])))
+	}
+
+	fmt.Println(sum_of_difference)
 	// Print the resulting slices?..
 	fmt.Println("Column 1:", len(column1))
 	fmt.Println("Column 2:", len(column2))
 }
-
